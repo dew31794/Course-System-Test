@@ -1,0 +1,716 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Course System API",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000",
+            "description": "Swagger-doc Course System API"
+        }
+    ],
+    "paths": {
+        "/api/course/read": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "取得課程列表",
+                "description": "暫無描述。",
+                "operationId": "8c88453e89055027d9f5bf2664038c81",
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": [
+                                            {
+                                                "id": 1,
+                                                "num": "2301A001",
+                                                "name": "專題演講",
+                                                "credits": 3,
+                                                "limit_people": 60,
+                                                "classroom_and_time": "管理學院 資訊大樓201，週二 13:10",
+                                                "instructors": "李專題",
+                                                "limit_illustrate": "限資管系,資訊工程系",
+                                                "required_illustrate": "資訊相關學系必修",
+                                                "remark": "本課程有期中/期末發表"
+                                            },
+                                            {
+                                                "id": 2,
+                                                "num": "2301A002",
+                                                "name": "資料結構",
+                                                "credits": 3,
+                                                "limit_people": 45,
+                                                "classroom_and_time": "管理學院 資訊大樓202，週一 09:10",
+                                                "instructors": "李專題",
+                                                "limit_illustrate": "限資管系,資訊工程系",
+                                                "required_illustrate": "資訊相關學系必修",
+                                                "remark": "無"
+                                            }
+                                        ],
+                                        "TimeStamp": "2023-09-07T03:15:53.188607+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/course/create": {
+            "post": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "建立新課程",
+                "description": "暫無描述。",
+                "operationId": "395cc55f6f29c0fdeec6369e2b0c9029",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "num": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "credits": {
+                                        "type": "integer"
+                                    },
+                                    "limit_people": {
+                                        "type": "integer"
+                                    },
+                                    "classroom_and_time": {
+                                        "type": "string"
+                                    },
+                                    "instructors": {
+                                        "type": "string"
+                                    },
+                                    "limit_illustrate": {
+                                        "type": "string"
+                                    },
+                                    "required_illustrate": {
+                                        "type": "string"
+                                    },
+                                    "remark": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "num": "2301A051",
+                                    "name": "資料結構",
+                                    "credits": 3,
+                                    "limit_people": 40,
+                                    "classroom_and_time": "管理學院 資訊大樓303，週一 13:10",
+                                    "instructors": "P0002",
+                                    "limit_illustrate": "限資管系",
+                                    "required_illustrate": "資訊管理系必修",
+                                    "remark": "無"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": {
+                                            "id": 7,
+                                            "num": "2301A051",
+                                            "name": "資料結構",
+                                            "credits": 3,
+                                            "limit_people": 40,
+                                            "classroom_and_time": "管理學院 資訊大樓303，週一 13:10",
+                                            "instructors": "黃電子",
+                                            "limit_illustrate": "限資管系",
+                                            "required_illustrate": "資訊管理系必修",
+                                            "remark": "無"
+                                        },
+                                        "TimeStamp": "2023-09-07T03:34:32.580848+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/course/show/{id}": {
+            "get": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "取得課程單一資訊",
+                "description": "暫無描述。",
+                "operationId": "c8e83e2fab39b9ac5b17c7beb693d04f",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "3"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": {
+                                            "id": 3,
+                                            "num": "2301B001",
+                                            "name": "電子學",
+                                            "credits": 3,
+                                            "limit_people": 40,
+                                            "classroom_and_time": "工程學院 電子系大樓201，週二 13:10",
+                                            "instructors": "黃電子",
+                                            "limit_illustrate": "限工程學院所有科系",
+                                            "required_illustrate": "電子系必修",
+                                            "remark": "本課程為18週課程"
+                                        },
+                                        "TimeStamp": "2023-09-07T03:39:26.390217+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/course/update/{id}": {
+            "put": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "更新課程內容",
+                "description": "暫無描述。",
+                "operationId": "99b07001e06e61eed6834c3922cb817a",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "4"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "credits": {
+                                        "type": "integer"
+                                    },
+                                    "limit_people": {
+                                        "type": "integer"
+                                    },
+                                    "classroom_and_time": {
+                                        "type": "string"
+                                    },
+                                    "instructors": {
+                                        "type": "string"
+                                    },
+                                    "limit_illustrate": {
+                                        "type": "string"
+                                    },
+                                    "required_illustrate": {
+                                        "type": "string"
+                                    },
+                                    "remark": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "數位多媒體設計",
+                                    "credits": 3,
+                                    "limit_people": 60,
+                                    "classroom_and_time": "創意媒體學院1館701，週四 13:10",
+                                    "instructors": "P0003",
+                                    "limit_illustrate": "限多媒體學院",
+                                    "required_illustrate": "資訊傳播系必修",
+                                    "remark": "本課程需做成果展示"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": {
+                                            "id": 4,
+                                            "num": "2301C002",
+                                            "name": "數位多媒體設計",
+                                            "credits": 3,
+                                            "limit_people": 60,
+                                            "classroom_and_time": "創意媒體學院1館701，週四 13:10",
+                                            "instructors": "陳媒體",
+                                            "limit_illustrate": "限多媒體學院",
+                                            "required_illustrate": "資訊傳播系必修",
+                                            "remark": "本課程需做成果展示"
+                                        },
+                                        "TimeStamp": "2023-09-07T03:43:25.323960+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/course/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Course"
+                ],
+                "summary": "刪除課程",
+                "description": "暫無描述。",
+                "operationId": "09c05029c5d57bc591edce1d52589ed2",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "6"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": "體育課程已刪除。",
+                                        "TimeStamp": "2023-09-07T03:44:56.903975+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lecturer/read": {
+            "get": {
+                "tags": [
+                    "Lecturer"
+                ],
+                "summary": "取得講師列表",
+                "description": "暫無描述。",
+                "operationId": "c776f282f119a1f78bf5a32943c29d60",
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": [
+                                            {
+                                                "id": 1,
+                                                "num": "P0001",
+                                                "name": "李專題",
+                                                "department": "資訊管理系",
+                                                "fulltime": "專任",
+                                                "rank": "助理教授",
+                                                "specialty": "XXXXXXX",
+                                                "remark": "無"
+                                            },
+                                            {
+                                                "id": 2,
+                                                "num": "P0002",
+                                                "name": "黃電子",
+                                                "department": "電子工程系",
+                                                "fulltime": "專任",
+                                                "rank": "教授",
+                                                "specialty": "XXXXXXX",
+                                                "remark": "無"
+                                            },
+                                            {
+                                                "id": 3,
+                                                "num": "P0003",
+                                                "name": "陳媒體",
+                                                "department": "資訊傳播系",
+                                                "fulltime": "專任",
+                                                "rank": "副教授",
+                                                "specialty": "XXXXXXX",
+                                                "remark": "無"
+                                            }
+                                        ],
+                                        "TimeStamp": "2023-09-07T03:15:53.188607+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lecturer/create": {
+            "post": {
+                "tags": [
+                    "Lecturer"
+                ],
+                "summary": "建立新講師",
+                "description": "暫無描述。",
+                "operationId": "f542ce54cc0b6adcf8718c87a6c46045",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "num": {
+                                        "type": "string"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "department": {
+                                        "type": "string"
+                                    },
+                                    "fulltime": {
+                                        "type": "string"
+                                    },
+                                    "rank": {
+                                        "type": "string"
+                                    },
+                                    "specialty": {
+                                        "type": "string"
+                                    },
+                                    "remark": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "num": "P0006",
+                                    "name": "郭台鳴",
+                                    "department": "電子工程系",
+                                    "fulltime": "專任",
+                                    "rank": "教授",
+                                    "specialty": "最會賺錢的。",
+                                    "remark": "無"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": {
+                                            "id": 6,
+                                            "num": "P0006",
+                                            "name": "郭台鳴",
+                                            "department": "電子工程系",
+                                            "fulltime": "專任",
+                                            "rank": "教授",
+                                            "specialty": "最會賺錢的。",
+                                            "remark": "無"
+                                        },
+                                        "TimeStamp": "2023-09-07T03:34:32.580848+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lecturer/show/{id}": {
+            "get": {
+                "tags": [
+                    "Lecturer"
+                ],
+                "summary": "取得講師詳細資訊",
+                "description": "暫無描述。",
+                "operationId": "bf509199fd4cea06b3a0d8269c32cd62",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "4"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": {
+                                            "id": 4,
+                                            "num": "P0004",
+                                            "name": "陳小二",
+                                            "department": "餐飲管理系",
+                                            "fulltime": "兼任",
+                                            "rank": "講師",
+                                            "specialty": "XXXXXXX",
+                                            "remark": "無"
+                                        },
+                                        "TimeStamp": "2023-09-07T03:53:18.837648+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lecturer/update/{id}": {
+            "put": {
+                "tags": [
+                    "Lecturer"
+                ],
+                "summary": "更新講師資訊",
+                "description": "暫無描述。",
+                "operationId": "639e0ac6d1b958069c0553ac957b52bc",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "5"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "department": {
+                                        "type": "string"
+                                    },
+                                    "fulltime": {
+                                        "type": "string"
+                                    },
+                                    "rank": {
+                                        "type": "string"
+                                    },
+                                    "specialty": {
+                                        "type": "string"
+                                    },
+                                    "remark": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object",
+                                "example": {
+                                    "name": "黃體操",
+                                    "department": "運動休閒系",
+                                    "fulltime": "兼任",
+                                    "rank": "講師",
+                                    "specialty": "體操、籃球、排球",
+                                    "remark": "無"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": {
+                                            "id": 5,
+                                            "num": "P0005",
+                                            "name": "黃體操",
+                                            "department": "運動休閒系",
+                                            "fulltime": "兼任",
+                                            "rank": "講師",
+                                            "specialty": "體操、籃球、排球",
+                                            "remark": "限多媒體學院"
+                                        },
+                                        "TimeStamp": "2023-09-07T03:50:16.208984+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lecturer/delete/{id}": {
+            "delete": {
+                "tags": [
+                    "Lecturer"
+                ],
+                "summary": "刪除講師",
+                "description": "暫無描述。",
+                "operationId": "8c64f311a4cb23b0db14e0d9cf2e83fe",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "example": "3"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": "陳媒體講師已刪除。",
+                                        "TimeStamp": "2023-09-07T03:48:57.662615+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/lecturer/lecturer-and-course-list": {
+            "get": {
+                "tags": [
+                    "Lecturer"
+                ],
+                "summary": "取得全部講師任課資料",
+                "description": "暫無描述。",
+                "operationId": "111ea3a6e8370cf538f2cb6cafb5df7d",
+                "responses": {
+                    "200": {
+                        "description": "請求成功。",
+                        "content": {
+                            "application\\json": {
+                                "schema": {
+                                    "example": {
+                                        "Status": "Success",
+                                        "Data": [
+                                            {
+                                                "id": 1,
+                                                "num": "P0001",
+                                                "name": "李專題",
+                                                "department": "資訊管理系",
+                                                "fulltime": "專任",
+                                                "rank": "助理教授",
+                                                "specialty": "XXXXXXX",
+                                                "remark": "無",
+                                                "children_course": [
+                                                    {
+                                                        "id": 1,
+                                                        "num": "2301A001",
+                                                        "name": "專題演講",
+                                                        "credits": 3,
+                                                        "limit_people": 60,
+                                                        "classroom_and_time": "管理學院 資訊大樓201，週二 13:10",
+                                                        "instructors": "李專題",
+                                                        "limit_illustrate": "限資管系,資訊工程系",
+                                                        "required_illustrate": "資訊相關學系必修",
+                                                        "remark": "本課程有期中/期末發表"
+                                                    },
+                                                    {
+                                                        "id": 2,
+                                                        "num": "2301A002",
+                                                        "name": "資料結構",
+                                                        "credits": 3,
+                                                        "limit_people": 45,
+                                                        "classroom_and_time": "管理學院 資訊大樓202，週一 09:10",
+                                                        "instructors": "李專題",
+                                                        "limit_illustrate": "限資管系,資訊工程系",
+                                                        "required_illustrate": "資訊相關學系必修",
+                                                        "remark": "無"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "id": 2,
+                                                "num": "P0002",
+                                                "name": "黃電子",
+                                                "department": "電子工程系",
+                                                "fulltime": "專任",
+                                                "rank": "教授",
+                                                "specialty": "XXXXXXX",
+                                                "remark": "無",
+                                                "children_course": [
+                                                    {
+                                                        "id": 3,
+                                                        "num": "2301B001",
+                                                        "name": "電子學",
+                                                        "credits": 3,
+                                                        "limit_people": 40,
+                                                        "classroom_and_time": "工程學院 電子系大樓201，週二 13:10",
+                                                        "instructors": "黃電子",
+                                                        "limit_illustrate": "限工程學院所有科系",
+                                                        "required_illustrate": "電子系必修",
+                                                        "remark": "本課程為18週課程"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "TimeStamp": "2023-09-07T03:15:53.188607+08:00 CST"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
