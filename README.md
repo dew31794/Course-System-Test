@@ -21,13 +21,13 @@ Laravel 8+
 ## 瀏覽Swagger API 文件頁面
 http://127.0.0.1:8000/api/documentation
 
-![](https://hackmd.io/_uploads/ByhPLoDAn.png)
+![image](https://github.com/dew31794/Course-System-Test/blob/main/public/markdown/upload_087a3d054a034c84970f9bac2bcbd0cf.png)
 
 若出現上面狀況，請確認 `專案/storage/api-docs/api-docs.json` 檔案是否存在
 若沒有，請下產生文件指令 `php artisan l5-swagger:generate`
 
 結果如下
-![](https://hackmd.io/_uploads/BJTSPsDA3.png)
+![image](https://github.com/dew31794/Course-System-Test/blob/main/public/markdown/upload_ce3aef7d237fa6353783ff3dbcfa700d.png)
 
 ## 講師與學生及課程相關資料表欄位
 路徑：`專案/database/migrations`
@@ -49,4 +49,4 @@ http://127.0.0.1:8000/api/documentation
 ```
 $ php artisan test
 ```
-![](https://hackmd.io/_uploads/BkRIuiPR2.png)
+![](https://github.com/dew31794/Course-System-Test/blob/main/public/markdown/upload_ba314d1f24a8724c6a0902bbf326846f.png)
